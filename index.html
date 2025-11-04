@@ -1,0 +1,1178 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professional Frontend Designer Portfolio</title>
+  
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="/_sdk/data_sdk.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Force Anton font everywhere */
+body, h1, h2, h3, h4, h5, h6, p, a, div, span, button {
+  font-family: 'Anton', sans-serif !important;
+  letter-spacing: 0.5px;
+  font-weight: 100 !important;
+}
+h1 {
+  font-size: 3rem !important;
+  font-weight: bold !important;
+  /* Customize as needed for impact */
+}
+
+#services{
+  padding-bottom: 30px !important;
+  padding-top: 30px !important;
+  border-top: 5px solid #334155 !important;
+}
+.bgdarkblue{
+    background-color: rgba(28, 164, 255, 0.12) !important;
+}
+.iconsvg{
+    fill: #000000;
+    transition: fill 0.2s;
+}
+.bgtheme{
+    background-color: #ffff;
+}
+.grid-lines-bg {
+  background-color: inherit;
+  /* Default: light mode (black lines) */
+  background-image:
+    repeating-linear-gradient(0deg, rgba(0,0,0,0.09) 0, rgba(0,0,0,0.09) 1px, transparent 1px, transparent 32px),
+    repeating-linear-gradient(90deg, rgba(0,0,0,0.09) 0, rgba(0,0,0,0.09) 1px, transparent 1px, transparent 32px);
+}
+.bgred{
+   background-color: rgba(28, 164, 255, 0.4) !important;
+}
+.bgblue{
+    background-color: rgba(28, 164, 255, 0.12) !important;
+}
+.project{
+    background-color: rgba(255, 255, 255, 0.4);
+}
+.impbtn{
+  background-color: transparent !important;
+  color: #000000 !important;
+  
+}
+@media (prefers-color-scheme: dark) {
+  .grid-lines-bg {
+    /* Dark mode: white lines */
+    background-image:
+      repeating-linear-gradient(0deg, rgba(255,255,255,0.12) 0, rgba(255,255,255,0.12) 1px, transparent 1px, transparent 32px),
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.12) 0, rgba(255,255,255,0.12) 1px, transparent 1px, transparent 32px);
+  }
+  .project{
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+  .bgtheme{
+    background-color: #000000;
+  }
+  .iconsvg{
+    fill: #000000;
+    transition: fill 0.2s;
+}
+.impbtn{
+  background-color: transparent !important;
+  color: #ffffff !important;
+}
+#services{
+  
+  border-top: 5px solid #ffffff !important;
+}
+.abthead{
+  color: #ffffff !important;
+  border-bottom: 3.5px solid #ffffff !important;
+}
+}
+
+
+  </style>
+  <style>
+    body {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: #f8fafc;
+      color: #1e293b;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+    html {
+      height: 100%;
+    }
+    
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Mobile menu animation */
+    .mobile-menu {
+      transform: translateX(-100%);
+      transition: transform 0.3s ease-in-out;
+    }
+    
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+    
+    /* Hover effects */
+    .hover-lift {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .hover-lift:hover {
+      transform: translateY(-4px);
+    }
+    
+    .skill-progress {
+      transition: width 0.8s ease-in-out;
+    }
+    
+    /* Responsive grid */
+    .responsive-grid {
+      display: grid;
+      gap: 24px;
+    }
+    
+    @media (min-width: 640px) {
+      .responsive-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (min-width: 1024px) {
+      .responsive-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+
+#fallback-loading {
+  animation: blink 1s infinite;
+}
+
+
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+ </head>
+ <body>
+    <div id="fallback-loading" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #fff; display: flex; justify-content: center; align-items: center; font-family: monospace; font-size: 30px; font-weight: bold; color: #3b82f6; z-index: 9999;">
+  Loading...
+</div>
+
+    <!-- Navigation -->
+  <nav id="main-nav" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 16px 20px; backdrop-filter: blur(10px); background-color: rgba(255, 255, 255, 0.95); border-bottom: 4px solid #334155; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);">
+   <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center;"><!-- Logo Block -->
+    <div id="nav-logo" class="bgblue" style="padding: 12px 20px; border: 3px solid #334155;  color: #ffffff; font-weight: bold; font-size: 18px; transition: all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.2)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+     Dhanush Mathe
+    </div><!-- Desktop Menu -->
+    <div id="desktop-menu" style="display: none; gap: 8px;"><a href="#hero" style="text-decoration: none; padding: 12px 20px; border: 3px solid #334155; background-color: #ffffff; color: #1e293b; font-weight: 500; transition: all 0.2s;" onmouseover="this.style.backgroundColor='#3b82f6'; this.style.color='#ffffff'; this.style.transform='translateY(-2px)'" onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='#1e293b'; this.style.transform='translateY(0)'">Home</a> <a href="#about" style="text-decoration: none; padding: 12px 20px; border: 3px solid #334155; background-color: #ffffff; color: #1e293b; font-weight: 500; transition: all 0.2s;" onmouseover="this.style.backgroundColor='#3b82f6'; this.style.color='#ffffff'; this.style.transform='translateY(-2px)'" onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='#1e293b'; this.style.transform='translateY(0)'">About</a> <a href="#projects" style="text-decoration: none; padding: 12px 20px; border: 3px solid #334155; background-color: #ffffff; color: #1e293b; font-weight: 500; transition: all 0.2s;" onmouseover="this.style.backgroundColor='#3b82f6'; this.style.color='#ffffff'; this.style.transform='translateY(-2px)'" onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='#1e293b'; this.style.transform='translateY(0)'">Projects</a> <a href="#services" style="text-decoration: none; padding: 12px 20px; border: 3px solid #334155; background-color: #ffffff; color: #1e293b; font-weight: 500; transition: all 0.2s;" onmouseover="this.style.backgroundColor='#3b82f6'; this.style.color='#ffffff'; this.style.transform='translateY(-2px)'" onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='#1e293b'; this.style.transform='translateY(0)'">Services</a> <a href="#experience" style="text-decoration: none; padding: 12px 20px; border: 3px solid #334155; background-color: #ffffff; color: #1e293b; font-weight: 500; transition: all 0.2s;" onmouseover="this.style.backgroundColor='#3b82f6'; this.style.color='#ffffff'; this.style.transform='translateY(-2px)'" onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='#1e293b'; this.style.transform='translateY(0)'">Experience</a> <a href="#contact" style="text-decoration: none; padding: 12px 20px; border: 3px solid #334155; background-color: #ffffff; color: #1e293b; font-weight: 500; transition: all 0.2s;" onmouseover="this.style.backgroundColor='#3b82f6'; this.style.color='#ffffff'; this.style.transform='translateY(-2px)'" onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='#1e293b'; this.style.transform='translateY(0)'">Contact</a>
+    </div><!-- Mobile Menu Button --> <button id="mobile-menu-btn" style="display: block; padding: 12px; border: 3px solid #334155; background-color: #ffffff; cursor: pointer; color: #1e293b; transition: all 0.2s;" onclick="toggleMobileMenu()" onmouseover="this.style.backgroundColor=config.button_color || defaultConfig.button_color; this.style.color=config.button_color === '#ffffff' ? '#000000' : '#ffffff'" onmouseout="this.style.backgroundColor=config.surface_color || defaultConfig.surface_color; this.style.color=config.text_color || defaultConfig.text_color">
+     <div style="width: 20px; height: 3px; background: currentColor; margin: 4px 0; transition: background 0.2s;"></div>
+     <div style="width: 20px; height: 3px; background: currentColor; margin: 4px 0; transition: background 0.2s;"></div>
+     <div style="width: 20px; height: 3px; background: currentColor; margin: 4px 0; transition: background 0.2s;"></div></button>
+   </div><!-- Mobile Menu -->
+   <div id="mobile-menu" class="mobile-menu" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; padding: 10px 20px 20px; display: flex; flex-direction: column; gap: 16px; background-color: #ffffff; color: #1e293b; border-right: 4px solid #334155;"><!-- Mobile Menu Header -->
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; padding-bottom: 20px; border-bottom: 4px solid #334155;">
+     <div class="bgblue" style="padding: 12px 20px; border: 3px solid #334155;  color: #ffffff; font-weight: bold; font-size: 18px;">
+      Dhanush Mathe
+     </div><button onclick="toggleMobileMenu()" style="padding: 8px; border: 3px solid #334155; background-color: #ffffff; color: #1e293b; cursor: pointer; font-size: 20px; font-weight: bold;">✕</button>
+    </div><!-- Mobile Menu Items --> <a href="#hero" style="text-decoration: none; font-size: 20px; font-weight: 500; padding: 16px 24px; border: 3px solid #334155; background-color: #ffffff; color: #1e293b; transition: all 0.2s; margin-bottom: 8px;" onclick="toggleMobileMenu()" onmouseover="this.style.backgroundColor='#3b82f6'; this.style.color='#ffffff'" onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='#1e293b'">🏠 Home</a> <a href="#about" style="text-decoration: none; font-size: 20px; font-weight: 500; padding: 16px 24px; border: 3px solid #334155; background-color: #ffffff; color: #1e293b; transition: all 0.2s; margin-bottom: 8px;" onclick="toggleMobileMenu()" onmouseover="this.style.backgroundColor='#3b82f6'; this.style.color='#ffffff'" onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='#1e293b'">👨‍💻 About</a> <a href="#projects" style="text-decoration: none; font-size: 20px; font-weight: 500; padding: 16px 24px; border: 3px solid #334155; background-color: #ffffff; color: #1e293b; transition: all 0.2s; margin-bottom: 8px;" onclick="toggleMobileMenu()" onmouseover="this.style.backgroundColor='#3b82f6'; this.style.color='#ffffff'" onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='#1e293b'">🚀 Projects</a> <a href="#services" style="text-decoration: none; font-size: 20px; font-weight: 500; padding: 16px 24px; border: 3px solid #334155; background-color: #ffffff; color: #1e293b; transition: all 0.2s; margin-bottom: 8px;" onclick="toggleMobileMenu()" onmouseover="this.style.backgroundColor='#3b82f6'; this.style.color='#ffffff'" onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='#1e293b'">💼 Services</a> <a href="#experience" style="text-decoration: none; font-size: 20px; font-weight: 500; padding: 16px 24px; border: 3px solid #334155; background-color: #ffffff; color: #1e293b; transition: all 0.2s; margin-bottom: 8px;" onclick="toggleMobileMenu()" onmouseover="this.style.backgroundColor='#3b82f6'; this.style.color='#ffffff'" onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='#1e293b'">📈 Experience</a> <a href="#contact" style="text-decoration: none; font-size: 20px; font-weight: 500; padding: 16px 24px; border: 3px solid #334155; background-color: #ffffff; color: #1e293b; transition: all 0.2s; margin-bottom: 8px;" onclick="toggleMobileMenu()" onmouseover="this.style.backgroundColor='#3b82f6'; this.style.color='#ffffff'" onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='#1e293b'">📧 Contact</a> <!-- Mobile Menu Footer -->
+    <div style="margin-top: auto; padding-top: 32px; border-top: 4px solid #334155; text-align: center;">
+     <div style="padding: 12px; border: 3px solid #334155; background-color: #f8fafc; color: #1e293b; font-size: 14px;">
+      Available for new projects ✨
+     </div>
+    </div>
+   </div>
+  </nav>
+  <main style="margin-top: 80px;"><!-- Hero Section -->
+
+
+   <section id="hero" class="grid-lines-bg" style="min-height: calc(100% - 80px); display: flex; justify-content: center; align-items: center; padding: 60px 20px;">
+  <div style="max-width: 1200px; width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 40px; flex-wrap: wrap;">
+    
+    <!-- Left side content -->
+    <div style="flex: 1 1 600px; max-width: 600px; text-align: left;">
+      <h1 id="designer-name" style="margin: 0 0 8px 0; font-weight: bold;">Dhanush Mathe</h1>
+      <h2 id="job-title" style="margin: 0 0 16px 0; font-weight: normal;">Senior Frontend Designer &amp; Developer</h2>
+      <p id="tagline" style="margin: 0 0 24px 0; font-size: 18px; font-style: italic;">
+        Crafting exceptional digital experiences with modern web technologies
+      </p>
+      <p id="bio-text" style="margin: 0 0 32px 0; text-align: left;">
+        Passionate about creating beautiful, functional user experiences through clean code and thoughtful design. Specializing in React, modern CSS, and user-centered design principles with 5+ years of industry experience.
+      </p>
+
+      <!-- Status Badge -->
+      <div style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border: 2px solid #334155; border-radius: 20px; margin-bottom: 32px; background-color: #ffffff;">
+        <div style="width: 8px; height: 8px; border-radius: 50%; background: #00ff00;"></div>
+        <span style="font-size: 14px; font-weight: 500; color: #1e293b;">Available for new projects</span>
+      </div>
+
+      <!-- CTA Buttons -->
+      <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 40px;">
+        <button onclick="scrollToSection('projects')" style="padding: 16px 32px; border: 4px solid #334155; font-weight: bold; cursor: pointer; transition: all 0.2s; background-color: #3b82f6; color: #ffffff;"
+          onmouseover="this.style.transform='translateY(-2px)'"
+          onmouseout="this.style.transform='translateY(0)'"> View My Work </button>
+        <button onclick="scrollToSection('contact')" style="padding: 16px 32px; border: 4px solid #334155; font-weight: bold; cursor: pointer; transition: all 0.2s; background-color: #3b82f6; color: #ffffff;"
+          onmouseover="this.style.transform='translateY(-2px)'"
+          onmouseout="this.style.transform='translateY(0)'"> Get In Touch </button>
+        <button class="impbtn" onclick="downloadResume()" style="padding: 16px 32px; border: 4px solid #334155; font-weight: bold; cursor: pointer; transition: all 0.2s; color: #000000;"
+          onmouseover="this.style.transform='translateY(-2px)'"
+          onmouseout="this.style.transform='translateY(0)'"> Download Resume </button>
+      </div>
+
+      <!-- Social Links -->
+      <div style="display: flex; gap: 20px; justify-content: left; margin-bottom: 40px;">
+        <a href="#" target="_blank" rel="noopener noreferrer" style="padding: 12px; border: 3px solid #334155; transition: all 0.2s; background-color: #ffffff; color: #1e293b;"
+          onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+          <!-- GitHub Icon -->
+          <svg class="iconsvg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.92c0-1.11.38-2 1.03-2.71c-.1-.25-.45-1.29.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33c.85 0 1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.35.2 2.39.1 2.64c.65.71 1.03 1.6 1.03 2.71c0 3.82-2.34 4.66-4.57 4.91c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+        </a>
+        <a href="#" target="_blank" rel="noopener noreferrer" style="padding: 12px; border: 3px solid #334155; transition: all 0.2s; background-color: #ffffff; color: #1e293b;"
+          onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+          <!-- LinkedIn Icon -->
+          <svg class="iconsvg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="#" target="_blank" rel="noopener noreferrer" style="padding: 12px; border: 3px solid #334155; transition: all 0.2s; background-color: #ffffff; color: #1e293b;"
+          onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
+          <!-- Twitter Icon -->
+          <svg class="iconsvg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Right side profile image -->
+    <div class="hero-right" style="flex: 1 1 400px; min-width: 300px; max-width: 600px; height: 100%; display: flex; align-items: center; justify-content: center;">
+      <img src="profileimg.png" alt="Profile Image"
+        style="width: 100%; height: 100%; object-fit: cover; ">
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+<style>
+  @media (max-width: 768px) {
+    #hero > div {
+      flex-direction: column !important;
+      align-items: center !important;
+    }
+    #hero > div > div {
+      max-width: 100% !important;
+      text-align: center !important;
+      margin-bottom: 40px;
+    }
+  }
+</style>
+
+<!-- About Section -->
+   <section id="about" class="bgblue" style="padding: 80px 20px; border-top: 6px solid #334155;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+     <h2 class="abthead" style="text-align: center; margin: 0 0 48px 0; font-weight: bold; font-size: 36px; padding-bottom: 16px; border-bottom: 4px solid #334155; color: #1e293b;">About Me</h2>
+     <div style="display: grid; gap: 48px; grid-template-columns: 1fr; margin-bottom: 60px;">
+      <div style="display: grid; gap: 48px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));"><!-- About Text -->
+       <div>
+        <h3 style="margin: 0 0 24px 0; font-weight: bold; font-size: 24px;">My Story</h3>
+        <p style="margin: 0 0 20px 0; line-height: 1.6;">With over 5 years of experience in frontend development and design, I've had the privilege of working with startups, agencies, and enterprise companies to bring digital products to life.</p>
+        <p style="margin: 0 0 20px 0; line-height: 1.6;">I specialize in creating responsive, accessible, and performant web applications using modern technologies like React, TypeScript, and advanced CSS techniques.</p>
+        <p style="margin: 0; line-height: 1.6;">When I'm not coding, you'll find me exploring new design trends, contributing to open-source projects, or mentoring aspiring developers.</p>
+       </div><!-- Quick Stats -->
+       <div class="bgtheme" style="border: 4px solid; padding: 32px;">
+        <h3 style="margin: 0 0 24px 0; font-weight: bold; font-size: 24px;">Quick Stats</h3>
+        <div style="display: grid; gap: 16px;">
+         <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 2px solid;"><span style="font-weight: 500;">Years of Experience</span> <span style="font-weight: bold; font-size: 18px;">5+</span>
+         </div>
+         <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 2px solid;"><span style="font-weight: 500;">Projects Completed</span> <span style="font-weight: bold; font-size: 18px;">50+</span>
+         </div>
+         <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 2px solid;"><span style="font-weight: 500;">Happy Clients</span> <span style="font-weight: bold; font-size: 18px;">30+</span>
+         </div>
+         <div style="display: flex; justify-content: space-between; align-items: center; padding: 12px 0;"><span style="font-weight: 500;">Coffee Consumed</span> <span style="font-weight: bold; font-size: 18px;">∞</span>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div><!-- Technical Skills -->
+     <div style="margin-bottom: 60px;">
+      <h3 style="text-align: center; margin: 0 0 40px 0; font-weight: bold; font-size: 28px;">Technical Skills</h3>
+      <div class="responsive-grid"><!-- Frontend -->
+       <div class="bgtheme" style="border: 4px solid; padding: 24px;">
+        <h4 style="margin: 0 0 20px 0; font-weight: bold; font-size: 20px; text-align: center;">Frontend</h4>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;"><span class="bgred" style="padding: 6px 12px; border: 2px solid; font-size: 14px; font-weight: 500;">React</span> <span class="bgred" style="padding: 6px 12px; border: 2px solid; font-size: 14px; font-weight: 500;">Vue.js</span> <span class="bgred" style="padding: 6px 12px; border: 2px solid; font-size: 14px; font-weight: 500;">TypeScript</span> <span class="bgred" style="padding: 6px 12px; border: 2px solid; font-size: 14px; font-weight: 500;">JavaScript ES6+</span> <span class="bgred" style="padding: 6px 12px; border: 2px solid; font-size: 14px; font-weight: 500;">HTML5</span> <span class="bgred" style="padding: 6px 12px; border: 2px solid; font-size: 14px; font-weight: 500;">CSS3/SCSS</span> <span class="bgred" style="padding: 6px 12px; border: 2px solid; font-size: 14px; font-weight: 500;">Tailwind CSS</span> <span class="bgred" style="padding: 6px 12px; border: 2px solid; font-size: 14px; font-weight: 500;">Next.js</span>
+        </div>
+       </div><!-- Backend & Tools -->
+       <div class="bgtheme" style="border: 4px solid; padding: 24px;">
+        <h4 style="margin: 0 0 20px 0; font-weight: bold; font-size: 20px; text-align: center;">Backend &amp; Tools</h4>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;"><span class="bgred" style="padding: 6px 12px; border: 2px solid; font-size: 14px; font-weight: 500;">Node.js</span> <span class="bgred" style="padding: 6px 12px; border: 2px solid; font-size: 14px; font-weight: 500;">Express</span> <span class="bgred" style="padding: 6px 12px; border: 2px solid; font-size: 14px; font-weight: 500;">MongoDB</span> <span class="bgred" style="padding: 6px 12px; border: 2px solid; font-size: 14px; font-weight: 500;">PostgreSQL</span> <span class="bgred" style="padding: 6px 12px; border: 2px solid; font-size: 14px; font-weight: 500;">Git</span> <span class="bgred" style="padding: 6px 12px; border: 2px solid; font-size: 14px; font-weight: 500;">Webpack</span> <span class="bgred" style="padding: 6px 12px; border: 2px solid; font-size: 14px; font-weight: 500;">Vite</span> <span class="bgred" style="padding: 6px 12px; border: 2px solid; font-size: 14px; font-weight: 500;">Docker</span>
+        </div>
+       </div><!-- Design & UX -->
+       <div class="bgtheme" style="border: 4px solid; padding: 24px;">
+        <h4 style="margin: 0 0 20px 0; font-weight: bold; font-size: 20px; text-align: center;">Design &amp; UX</h4>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;"><span class="bgred" style="padding: 6px 12px; border: 2px solid; font-size: 14px; font-weight: 500;">Figma</span> <span class="bgred" style="padding: 6px 12px; border: 2px solid; font-size: 14px; font-weight: 500;">Adobe XD</span> <span class="bgred" style="padding: 6px 12px; border: 2px solid; font-size: 14px; font-weight: 500;">Sketch</span> <span class="bgred" style="padding: 6px 12px; border: 2px solid; font-size: 14px; font-weight: 500;">Photoshop</span> <span class="bgred" style="padding: 6px 12px; border: 2px solid; font-size: 14px; font-weight: 500;">UI/UX Design</span> <span class="bgred" style="padding: 6px 12px; border: 2px solid; font-size: 14px; font-weight: 500;">Prototyping</span> <span class="bgred" style="padding: 6px 12px; border: 2px solid; font-size: 14px; font-weight: 500;">User Research</span> <span class="bgred" style="padding: 6px 12px; border: 2px solid; font-size: 14px; font-weight: 500;">Accessibility</span>
+        </div>
+       </div>
+      </div>
+     </div><!-- Certifications -->
+     <div>
+      <h3 style="text-align: center; margin: 0 0 40px 0; font-weight: bold; font-size: 28px;">Certifications</h3>
+      <div style="display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+       <div class="bgtheme" style="border: 4px solid; padding: 24px; text-align: center;">
+        <h4 style="margin: 0 0 8px 0; font-weight: bold;">AWS Certified Developer</h4>
+        <p style="margin: 0 0 8px 0; font-size: 14px;">Amazon Web Services</p>
+        <p style="margin: 0; font-size: 14px; font-weight: 500;">2023</p>
+       </div>
+       <div class="bgtheme" style="border: 4px solid; padding: 24px; text-align: center;">
+        <h4 style="margin: 0 0 8px 0; font-weight: bold;">Google UX Design Certificate</h4>
+        <p style="margin: 0 0 8px 0; font-size: 14px;">Google Career Certificates</p>
+        <p style="margin: 0; font-size: 14px; font-weight: 500;">2022</p>
+       </div>
+       <div class="bgtheme" style="border: 4px solid; padding: 24px; text-align: center;">
+        <h4 style="margin: 0 0 8px 0; font-weight: bold;">React Developer Certification</h4>
+        <p style="margin: 0 0 8px 0; font-size: 14px;">Meta (Facebook)</p>
+        <p style="margin: 0; font-size: 14px; font-weight: 500;">2022</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Projects Section -->
+   <section id="projects" class="grid-lines-bg" style="padding: 80px 20px; border-top: 6px solid;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+     <h2 style="text-align: center; margin: 0 0 48px 0; font-weight: bold; font-size: 36px; padding-bottom: 16px; border-bottom: 4px solid;">Featured Projects</h2>
+     <div class="responsive-grid"><!-- Project 1 -->
+      <div class="hover-lift project" style="border: 4px solid;  padding: 24px;">
+       <div style="height: 200px; border: 3px solid; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+        <svg width="60" height="60" viewbox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" />
+        </svg>
+        <div style="position: absolute; top: 8px; right: 8px; padding: 4px 8px; border: 2px solid; font-size: 12px; font-weight: bold;">
+         Featured
+        </div>
+       </div>
+       <h3 style="margin: 0 0 12px 0; font-weight: bold; font-size: 20px;">E-Commerce Dashboard</h3>
+       <p style="margin: 0 0 16px 0; line-height: 1.5;">Modern admin dashboard with real-time analytics, inventory management, and sales tracking. Built with React and Chart.js featuring responsive design and dark mode toggle.</p>
+       <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;"><span class="bgred" style="padding: 4px 12px; border: 2px solid; font-size: 12px; font-weight: 500;">React</span> <span class="bgred" style="padding: 4px 12px; border: 2px solid; font-size: 12px; font-weight: 500;">TypeScript</span> <span class="bgred" style="padding: 4px 12px; border: 2px solid; font-size: 12px; font-weight: 500;">Chart.js</span> <span class="bgred" style="padding: 4px 12px; border: 2px solid; font-size: 12px; font-weight: 500;">Tailwind</span>
+       </div>
+       <div style="display: flex; gap: 12px; flex-wrap: wrap;"><button onclick="window.open('#', '_blank')" style="padding: 8px 16px; border: 3px solid; font-weight: bold; cursor: pointer; transition: all 0.2s; font-size: 14px;" onmouseover="this.style.transform='translateY(-1px)'" onmouseout="this.style.transform='translateY(0)'"> Live Demo </button> <button onclick="window.open('#', '_blank')" style="padding: 8px 16px; border: 3px solid; font-weight: bold; cursor: pointer; transition: all 0.2s; font-size: 14px;" onmouseover="this.style.transform='translateY(-1px)'" onmouseout="this.style.transform='translateY(0)'"> GitHub </button>
+       </div>
+      </div><!-- Project 2 -->
+      <div class="hover-lift project" style="border: 4px solid; padding: 24px; ">
+       <div style="height: 200px;  border: 3px solid; margin-bottom: 20px; display: flex; align-items: center; justify-content: center;">
+        <svg width="60" height="60" viewbox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+        </svg>
+       </div>
+       <h3 style="margin: 0 0 12px 0; font-weight: bold; font-size: 20px;">Recipe Sharing Platform</h3>
+       <p style="margin: 0 0 16px 0; line-height: 1.5;">Social platform for sharing recipes with ingredient scaling, meal planning, user reviews, and shopping list generation. Mobile-first responsive design with PWA capabilities.</p>
+       <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;"><span class="bgred" style="padding: 4px 12px; border: 2px solid; font-size: 12px; font-weight: 500;">React</span> <span class="bgred" style="padding: 4px 12px; border: 2px solid; font-size: 12px; font-weight: 500;">Node.js</span> <span class="bgred" style="padding: 4px 12px; border: 2px solid; font-size: 12px; font-weight: 500;">MongoDB</span> <span class="bgred" style="padding: 4px 12px; border: 2px solid; font-size: 12px; font-weight: 500;">PWA</span>
+       </div>
+       <div style="display: flex; gap: 12px; flex-wrap: wrap;"><button onclick="window.open('#', '_blank')" style="padding: 8px 16px; border: 3px solid; font-weight: bold; cursor: pointer; transition: all 0.2s; font-size: 14px;" onmouseover="this.style.transform='translateY(-1px)'" onmouseout="this.style.transform='translateY(0)'"> Live Demo </button> <button onclick="window.open('#', '_blank')" style="padding: 8px 16px; border: 3px solid; font-weight: bold; cursor: pointer; transition: all 0.2s; font-size: 14px;" onmouseover="this.style.transform='translateY(-1px)'" onmouseout="this.style.transform='translateY(0)'"> GitHub </button>
+       </div>
+      </div><!-- Project 3 -->
+      <div class="hover-lift project" style="border: 4px solid; padding: 24px; ">
+       <div style="height: 200px; border: 3px solid; margin-bottom: 20px; display: flex; align-items: center; justify-content: center;">
+        <svg width="60" height="60" viewbox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+        </svg>
+       </div>
+       <h3 style="margin: 0 0 12px 0; font-weight: bold; font-size: 20px;">Task Management Suite</h3>
+       <p style="margin: 0 0 16px 0; line-height: 1.5;">Collaborative project management application with drag-and-drop functionality, real-time updates, team collaboration, time tracking, and advanced reporting features.</p>
+       <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;"><span class="bgred" style="padding: 4px 12px; border: 2px solid; font-size: 12px; font-weight: 500;">Vue.js</span> <span class="bgred" style="padding: 4px 12px; border: 2px solid; font-size: 12px; font-weight: 500;">Firebase</span> <span class="bgred" style="padding: 4px 12px; border: 2px solid; font-size: 12px; font-weight: 500;">Vuetify</span> <span class="bgred" style="padding: 4px 12px; border: 2px solid; font-size: 12px; font-weight: 500;">WebSocket</span>
+       </div>
+       <div style="display: flex; gap: 12px; flex-wrap: wrap;"><button onclick="window.open('#', '_blank')" style="padding: 8px 16px; border: 3px solid; font-weight: bold; cursor: pointer; transition: all 0.2s; font-size: 14px;" onmouseover="this.style.transform='translateY(-1px)'" onmouseout="this.style.transform='translateY(0)'"> Live Demo </button> <button onclick="window.open('#', '_blank')" style="padding: 8px 16px; border: 3px solid; font-weight: bold; cursor: pointer; transition: all 0.2s; font-size: 14px;" onmouseover="this.style.transform='translateY(-1px)'" onmouseout="this.style.transform='translateY(0)'"> GitHub </button>
+       </div>
+      </div><!-- Project 4 -->
+      <div class="hover-lift project" style="border: 4px solid; padding: 24px; ">
+       <div style="height: 200px; border: 3px solid; margin-bottom: 20px; display: flex; align-items: center; justify-content: center;">
+        <svg width="60" height="60" viewbox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+        </svg>
+       </div>
+       <h3 style="margin: 0 0 12px 0; font-weight: bold; font-size: 20px;">Fitness Tracking App</h3>
+       <p style="margin: 0 0 16px 0; line-height: 1.5;">Comprehensive fitness application with workout planning, progress tracking, nutrition logging, and social features. Includes wearable device integration and AI-powered recommendations.</p>
+       <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;"><span class="bgred" style="padding: 4px 12px; border: 2px solid; font-size: 12px; font-weight: 500;">React Native</span> <span class="bgred" style="padding: 4px 12px; border: 2px solid; font-size: 12px; font-weight: 500;">Express</span> <span class="bgred" style="padding: 4px 12px; border: 2px solid; font-size: 12px; font-weight: 500;">PostgreSQL</span> <span class="bgred" style="padding: 4px 12px; border: 2px solid; font-size: 12px; font-weight: 500;">ML</span>
+       </div>
+       <div style="display: flex; gap: 12px; flex-wrap: wrap;"><button onclick="window.open('#', '_blank')" style="padding: 8px 16px; border: 3px solid; font-weight: bold; cursor: pointer; transition: all 0.2s; font-size: 14px;" onmouseover="this.style.transform='translateY(-1px)'" onmouseout="this.style.transform='translateY(0)'"> Live Demo </button> <button onclick="window.open('#', '_blank')" style="padding: 8px 16px; border: 3px solid; font-weight: bold; cursor: pointer; transition: all 0.2s; font-size: 14px;" onmouseover="this.style.transform='translateY(-1px)'" onmouseout="this.style.transform='translateY(0)'"> GitHub </button>
+       </div>
+      </div><!-- Project 5 -->
+      <div class="hover-lift project" style="border: 4px solid; padding: 24px; ">
+       <div style="height: 200px; border: 3px solid; margin-bottom: 20px; display: flex; align-items: center; justify-content: center;">
+        <svg width="60" height="60" viewbox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+        </svg>
+       </div>
+       <h3 style="margin: 0 0 12px 0; font-weight: bold; font-size: 20px;">Real Estate Platform</h3>
+       <p style="margin: 0 0 16px 0; line-height: 1.5;">Modern real estate marketplace with advanced search filters, virtual tours, mortgage calculator, and agent communication system. Features map integration and property comparison tools.</p>
+       <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;"><span class="bgred" style="padding: 4px 12px; border: 2px solid; font-size: 12px; font-weight: 500;">Next.js</span> <span class="bgred" style="padding: 4px 12px; border: 2px solid; font-size: 12px; font-weight: 500;">Prisma</span> <span class="bgred" style="padding: 4px 12px; border: 2px solid; font-size: 12px; font-weight: 500;">PostgreSQL</span> <span class="bgred" style="padding: 4px 12px; border: 2px solid; font-size: 12px; font-weight: 500;">Maps API</span>
+       </div>
+       <div style="display: flex; gap: 12px; flex-wrap: wrap;"><button onclick="window.open('#', '_blank')" style="padding: 8px 16px; border: 3px solid; font-weight: bold; cursor: pointer; transition: all 0.2s; font-size: 14px;" onmouseover="this.style.transform='translateY(-1px)'" onmouseout="this.style.transform='translateY(0)'"> Live Demo </button> <button onclick="window.open('#', '_blank')" style="padding: 8px 16px; border: 3px solid; font-weight: bold; cursor: pointer; transition: all 0.2s; font-size: 14px;" onmouseover="this.style.transform='translateY(-1px)'" onmouseout="this.style.transform='translateY(0)'"> GitHub </button>
+       </div>
+      </div><!-- Project 6 -->
+      <div class="hover-lift project" style="border: 4px solid; padding: 24px; ">
+       <div style="height: 200px; border: 3px solid; margin-bottom: 20px; display: flex; align-items: center; justify-content: center;">
+        <svg width="60" height="60" viewbox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+        </svg>
+       </div>
+       <h3 style="margin: 0 0 12px 0; font-weight: bold; font-size: 20px;">Learning Management System</h3>
+       <p style="margin: 0 0 16px 0; line-height: 1.5;">Comprehensive LMS with course creation, video streaming, progress tracking, quizzes, and certification system. Includes instructor dashboard and student analytics.</p>
+       <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;"><span class="bgred" style="padding: 4px 12px; border: 2px solid; font-size: 12px; font-weight: 500;">React</span> <span class="bgred" style="padding: 4px 12px; border: 2px solid; font-size: 12px; font-weight: 500;">Django</span> <span class="bgred" style="padding: 4px 12px; border: 2px solid; font-size: 12px; font-weight: 500;">Redis</span> <span class="bgred" style="padding: 4px 12px; border: 2px solid; font-size: 12px; font-weight: 500;">AWS</span>
+       </div>
+       <div style="display: flex; gap: 12px; flex-wrap: wrap;"><button onclick="window.open('#', '_blank')" style="padding: 8px 16px; border: 3px solid; font-weight: bold; cursor: pointer; transition: all 0.2s; font-size: 14px;" onmouseover="this.style.transform='translateY(-1px)'" onmouseout="this.style.transform='translateY(0)'"> Live Demo </button> <button onclick="window.open('#', '_blank')" style="padding: 8px 16px; border: 3px solid; font-weight: bold; cursor: pointer; transition: all 0.2s; font-size: 14px;" onmouseover="this.style.transform='translateY(-1px)'" onmouseout="this.style.transform='translateY(0)'"> GitHub </button>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Services ection -->
+   <section id="services" class="bgblue style="padding: 80px 20px; border-top: 6px solid;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+     <h2 style="text-align: center; margin: 0 0 48px 0; font-weight: bold; font-size: 36px; padding-bottom: 16px; border-bottom: 4px solid;">Services</h2>
+     <div class="responsive-grid"><!-- Web Development -->
+      <div class="hover-lift bgtheme" style="border: 4px solid; padding: 32px; text-align: center;">
+       <div style="width: 80px; height: 80px; margin: 0 auto 24px; border: 4px solid; display: flex; align-items: center; justify-content: center;">
+        <svg width="40" height="40" viewbox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+        </svg>
+       </div>
+       <h3 style="margin: 0 0 16px 0; font-weight: bold; font-size: 24px;">Web Development</h3>
+       <p style="margin: 0 0 24px 0; line-height: 1.6;">Custom web applications built with modern frameworks like React, Vue.js, and Next.js. Responsive, performant, and SEO-optimized.</p>
+       <div style="margin-bottom: 24px;">
+        <div style="font-weight: bold; font-size: 32px; margin-bottom: 8px;">
+         $75-150
+        </div>
+        <div style="font-size: 14px;">
+         per hour
+        </div>
+       </div><button onclick="scrollToSection('contact')" style="padding: 12px 24px; border: 3px solid; font-weight: bold; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'"> Get Quote </button>
+      </div><!-- UI/UX Design -->
+      <div class="hover-lift bgtheme" style="border: 4px solid; padding: 32px; text-align: center;">
+       <div style="width: 80px; height: 80px; margin: 0 auto 24px; border: 4px solid; display: flex; align-items: center; justify-content: center;">
+        <svg width="40" height="40" viewbox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+        </svg>
+       </div>
+       <h3 style="margin: 0 0 16px 0; font-weight: bold; font-size: 24px;">UI/UX Design</h3>
+       <p style="margin: 0 0 24px 0; line-height: 1.6;">User-centered design solutions including wireframes, prototypes, and high-fidelity designs. Focus on usability and conversion optimization.</p>
+       <div style="margin-bottom: 24px;">
+        <div style="font-weight: bold; font-size: 32px; margin-bottom: 8px;">
+         $60-120
+        </div>
+        <div style="font-size: 14px;">
+         per hour
+        </div>
+       </div><button onclick="scrollToSection('contact')" style="padding: 12px 24px; border: 3px solid; font-weight: bold; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'"> Get Quote </button>
+      </div><!-- Consulting -->
+      <div class="hover-lift bgtheme" style="border: 4px solid; padding: 32px; text-align: center;">
+       <div style="width: 80px; height: 80px; margin: 0 auto 24px; border: 4px solid; display: flex; align-items: center; justify-content: center;">
+        <svg width="40" height="40" viewbox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z" />
+        </svg>
+       </div>
+       <h3 style="margin: 0 0 16px 0; font-weight: bold; font-size: 24px;">Technical Consulting</h3>
+       <p style="margin: 0 0 24px 0; line-height: 1.6;">Strategic guidance on technology choices, architecture decisions, performance optimization, and team mentoring for your development projects.</p>
+       <div style="margin-bottom: 24px;">
+        <div style="font-weight: bold; font-size: 32px; margin-bottom: 8px;">
+         $100-200
+        </div>
+        <div style="font-size: 14px;">
+         per hour
+        </div>
+       </div><button onclick="scrollToSection('contact')" style="padding: 12px 24px; border: 3px solid; font-weight: bold; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'"> Get Quote </button>
+      </div>
+     </div>
+    </div>
+   </section><!-- Testimonials Section -->
+   <section class="grid-lines-bg" style="padding: 80px 20px; border-top: 6px solid;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+     <h2 style="text-align: center; margin: 0 0 48px 0; font-weight: bold; font-size: 36px; padding-bottom: 16px; border-bottom: 4px solid;">Client Testimonials</h2>
+     <div class="responsive-grid" "><!-- Testimonial 1 -->
+      <div style="border: 4px solid; padding: 32px; background-color: rgb(139, 184, 226, 0.3);">
+       <div style="display: flex; gap: 4px; margin-bottom: 16px;"><span style="color: #ffd700;">★</span> <span style="color: #ffd700;">★</span> <span style="color: #ffd700;">★</span> <span style="color: #ffd700;">★</span> <span style="color: #ffd700;">★</span>
+       </div>
+       <p style="margin: 0 0 20px 0; line-height: 1.6; font-style: italic;">"Alex delivered an exceptional e-commerce platform that exceeded our expectations. The attention to detail and user experience is outstanding. Our conversion rates increased by 40% after launch."</p>
+       <div style="display: flex; align-items: center; gap: 16px;">
+        <div style="width: 50px; height: 50px; border: 3px solid; border-radius: 50%; display: flex; align-items: center; justify-content: center;"><span style="font-weight: bold; font-size: 18px;">SM</span>
+        </div>
+        <div>
+         <div style="font-weight: bold;">
+          Sarah Mitchell
+         </div>
+         <div style="font-size: 14px;">
+          CEO, TechStart Inc.
+         </div>
+        </div>
+       </div>
+      </div><!-- Testimonial 2 -->
+      <div style="border: 4px solid; padding: 32px; background-color: rgb(139, 184, 226, 0.3);">
+       <div style="display: flex; gap: 4px; margin-bottom: 16px;"><span style="color: #ffd700;">★</span> <span style="color: #ffd700;">★</span> <span style="color: #ffd700;">★</span> <span style="color: #ffd700;">★</span> <span style="color: #ffd700;">★</span>
+       </div>
+       <p style="margin: 0 0 20px 0; line-height: 1.6; font-style: italic;">"Working with Alex was a game-changer for our project. His technical expertise and design sensibility helped us create a product that our users absolutely love. Highly recommended!"</p>
+       <div style="display: flex; align-items: center; gap: 16px;">
+        <div style="width: 50px; height: 50px; border: 3px solid; border-radius: 50%; display: flex; align-items: center; justify-content: center;"><span style="font-weight: bold; font-size: 18px;">MR</span>
+        </div>
+        <div>
+         <div style="font-weight: bold;">
+          Michael Rodriguez
+         </div>
+         <div style="font-size: 14px;">
+          Product Manager, InnovateLab
+         </div>
+        </div>
+       </div>
+      </div><!-- Testimonial 3 -->
+      <div style="border: 4px solid; padding: 32px; background-color: rgb(139, 184, 226, 0.3);">
+       <div style="display: flex; gap: 4px; margin-bottom: 16px;"><span style="color: #ffd700;">★</span> <span style="color: #ffd700;">★</span> <span style="color: #ffd700;">★</span> <span style="color: #ffd700;">★</span> <span style="color: #ffd700;">★</span>
+       </div>
+       <p style="margin: 0 0 20px 0; line-height: 1.6; font-style: italic;">"Alex's ability to translate complex requirements into elegant solutions is remarkable. The dashboard he built for us has become the cornerstone of our daily operations."</p>
+       <div style="display: flex; align-items: center; gap: 16px;">
+        <div style="width: 50px; height: 50px; border: 3px solid; border-radius: 50%; display: flex; align-items: center; justify-content: center;"><span style="font-weight: bold; font-size: 18px;">LC</span>
+        </div>
+        <div>
+         <div style="font-weight: bold;">
+          Lisa Chen
+         </div>
+         <div style="font-size: 14px;">
+          CTO, DataFlow Solutions
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Experience Section -->
+   <section id="experience" class="bgblue" style="padding: 80px 20px; border-top: 6px solid;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+     <h2 style="text-align: center; margin: 0 0 48px 0; font-weight: bold; font-size: 36px; padding-bottom: 16px; border-bottom: 4px solid;">Professional Experience</h2>
+     <div style="display: grid; gap: 32px;"><!-- Experience 1 -->
+      <div class="bgtheme" style="border: 4px solid; padding: 32px;">
+       <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 16px; flex-wrap: wrap; gap: 16px;">
+        <div>
+         <h3 style="margin: 0 0 8px 0; font-weight: bold; font-size: 24px;">Senior Frontend Developer</h3>
+         <h4 style="margin: 0 0 8px 0; font-weight: normal; font-size: 18px;">TechCorp Solutions</h4>
+         <p style="margin: 0; font-size: 14px;">San Francisco, CA</p>
+        </div>
+        <div class="bgblue" style="padding: 8px 16px; border: 3px solid; font-weight: bold;">
+         2022 - Present
+        </div>
+       </div>
+       <p style="margin: 0 0 16px 0; line-height: 1.6;">Lead frontend development for enterprise web applications serving 100K+ users. Implemented design systems, mentored junior developers, and improved application performance by 40%.</p>
+       <ul style="margin: 0; padding-left: 20px; line-height: 1.6;">
+        <li>Architected and built scalable React applications with TypeScript</li>
+        <li>Established design system used across 15+ products</li>
+        <li>Mentored team of 6 junior developers</li>
+        <li>Reduced bundle size by 35% through code splitting and optimization</li>
+       </ul>
+      </div><!-- Experience 2 -->
+      <div class="bgtheme" style="border: 4px solid; padding: 32px;">
+       <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 16px; flex-wrap: wrap; gap: 16px;">
+        <div>
+         <h3 style="margin: 0 0 8px 0; font-weight: bold; font-size: 24px;">Frontend Developer</h3>
+         <h4 style="margin: 0 0 8px 0; font-weight: normal; font-size: 18px;">StartupXYZ</h4>
+         <p style="margin: 0; font-size: 14px;">Austin, TX</p>
+        </div>
+        <div class="bgblue" style="padding: 8px 16px; border: 3px solid; font-weight: bold;">
+         2020 - 2022
+        </div>
+       </div>
+       <p style="margin: 0 0 16px 0; line-height: 1.6;">Developed responsive web applications using React and modern CSS. Collaborated with designers to implement pixel-perfect UI components and improved user engagement by 25%.</p>
+       <ul style="margin: 0; padding-left: 20px; line-height: 1.6;">
+        <li>Built and maintained 10+ React applications</li>
+        <li>Implemented responsive designs for mobile-first approach</li>
+        <li>Collaborated with UX team to improve user flows</li>
+        <li>Integrated third-party APIs and payment systems</li>
+       </ul>
+      </div><!-- Experience 3 -->
+      <div class="bgtheme" style="border: 4px solid; padding: 32px;">
+       <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 16px; flex-wrap: wrap; gap: 16px;">
+        <div>
+         <h3 style="margin: 0 0 8px 0; font-weight: bold; font-size: 24px;">Junior Web Developer</h3>
+         <h4 style="margin: 0 0 8px 0; font-weight: normal; font-size: 18px;">Digital Agency Pro</h4>
+         <p style="margin: 0; font-size: 14px;">Denver, CO</p>
+        </div>
+        <div class="bgblue" style="padding: 8px 16px; border: 3px solid; font-weight: bold;">
+         2019 - 2020
+        </div>
+       </div>
+       <p style="margin: 0 0 16px 0; line-height: 1.6;">Built custom websites for clients using HTML, CSS, and JavaScript. Gained experience in responsive design, cross-browser compatibility, and client communication.</p>
+       <ul style="margin: 0; padding-left: 20px; line-height: 1.6;">
+        <li>Delivered 25+ client websites on time and within budget</li>
+        <li>Learned modern development workflows and tools</li>
+        <li>Provided technical support and maintenance</li>
+        <li>Collaborated with design and marketing teams</li>
+       </ul>
+      </div>
+     </div><!-- Education -->
+     <div style="margin-top: 60px;">
+      <h3 style="text-align: center; margin: 0 0 40px 0; font-weight: bold; font-size: 28px;">Education</h3>
+      <div class="bgtheme" style="border: 4px solid; padding: 32px; text-align: left; margin-bottom: 20px">
+       <h4 style="margin: 0 0 8px 0; font-weight: bold; font-size: 24px;">Btech in Computer Science Engineering</h4>
+       <p style="margin: 0 0 8px 0; font-size: 18px;">Vardhaman College of Engineering, Shamshabad</p>
+       <p style="margin: 0; font-size: 16px; font-weight: 500;">2015 - 2019 | GPA: 3.8/4.0</p>
+      </div>
+      <div class="bgtheme" style="border: 4px solid; padding: 32px; text-align: left; margin-bottom: 20px;">
+       <h4 style="margin: 0 0 8px 0; font-weight: bold; font-size: 24px;">Bachelor of Science in Computer Science</h4>
+       <p style="margin: 0 0 8px 0; font-size: 18px;">University of California, Berkeley</p>
+       <p style="margin: 0; font-size: 16px; font-weight: 500;">2015 - 2019 | GPA: 3.8/4.0</p>
+      </div>
+      <div class="bgtheme" style="border: 4px solid; padding: 32px; text-align: left;">
+       <h4 style="margin: 0 0 8px 0; font-weight: bold; font-size: 24px; ">Bachelor of Science in Computer Science</h4>
+       <p style="margin: 0 0 8px 0; font-size: 18px;">University of California, Berkeley</p>
+       <p style="margin: 0; font-size: 16px; font-weight: 500;">2015 - 2019 | GPA: 3.8/4.0</p>
+      </div>
+      
+     </div>
+    </div>
+   </section><!-- Contact Section -->
+   <section id="contact" class="grid-lines-bg" style="padding: 80px 20px; border-top: 6px solid;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+     <h2 style="text-align: center; margin: 0 0 24px 0; font-weight: bold; font-size: 36px; padding-bottom: 16px; border-bottom: 4px solid;">Let's Work Together</h2>
+     <p style="text-align: center; margin: 0 0 48px 0; font-size: 18px; max-width: 600px; margin-left: auto; margin-right: auto;">I'm always interested in new opportunities and exciting projects. Let's discuss how we can bring your ideas to life!</p>
+     <div style="display: grid; gap: 48px; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));"><!-- Contact Info -->
+      <div>
+       <h3 style="margin: 0 0 32px 0; font-weight: bold; font-size: 24px;">Get In Touch</h3>
+       <div  style="display: grid; gap: 24px;"><!-- Email -->
+        <div class="bgblue" style="display: flex; align-items: center; gap: 16px; padding: 20px; border: 3px solid;">
+         <svg width="24" height="24" viewbox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+         </svg>
+         <div>
+          <div style="font-weight: bold; margin-bottom: 4px;">
+           Email
+          </div>
+          <div id="email-address">
+           alex.johnson@email.com
+          </div>
+         </div>
+        </div><!-- Phone -->
+        <div class="bgblue" style="display: flex; align-items: center; gap: 16px; padding: 20px; border: 3px solid;">
+         <svg width="24" height="24" viewbox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+         </svg>
+         <div>
+          <div style="font-weight: bold; margin-bottom: 4px;">
+           Phone
+          </div>
+          <div id="phone-number">
+           +1 (555) 123-4567
+          </div>
+         </div>
+        </div><!-- Location -->
+        <div class="bgblue" style="display: flex; align-items: center; gap: 16px; padding: 20px; border: 3px solid;">
+         <svg width="24" height="24" viewbox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+         </svg>
+         <div>
+          <div style="font-weight: bold; margin-bottom: 4px;">
+           Location
+          </div>
+          <div id="location">
+           San Francisco, CA
+          </div>
+         </div>
+        </div><!-- Response Time -->
+        <div class="bgblue" style="display: flex; align-items: center; gap: 16px; padding: 20px; border: 3px solid;">
+         <svg width="24" height="24" viewbox="0 0 24 24" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z" /> <path d="M12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
+         </svg>
+         <div>
+          <div style="font-weight: bold; margin-bottom: 4px;">
+           Response Time
+          </div>
+          <div>
+           Usually within 24 hours
+          </div>
+         </div>
+        </div>
+       </div>
+      </div><!-- Contact Form -->
+      <div>
+       <h3 style="margin: 0 0 32px 0; font-weight: bold; font-size: 24px;">Send Message</h3>
+       <form id="contact-form" onsubmit="handleContactSubmit(event)" style="display: grid; gap: 20px;">
+        <div><label for="contact-name" style="display: block; margin-bottom: 8px; font-weight: bold;">Name *</label> <input id="contact-name" type="text" required style="width: 100%; padding: 12px; border: 3px solid; font-size: 16px; outline: none;">
+        </div>
+        <div><label for="contact-email" style="display: block; margin-bottom: 8px; font-weight: bold;">Email *</label> <input id="contact-email" type="email" required style="width: 100%; padding: 12px; border: 3px solid; font-size: 16px; outline: none;">
+        </div>
+        <div><label for="contact-subject" style="display: block; margin-bottom: 8px; font-weight: bold;">Subject *</label> <input id="contact-subject" type="text" required style="width: 100%; padding: 12px; border: 3px solid; font-size: 16px; outline: none;">
+        </div>
+        <div><label for="contact-message" style="display: block; margin-bottom: 8px; font-weight: bold;">Message *</label> <textarea id="contact-message" required rows="6" style="width: 100%; padding: 12px; border: 3px solid; font-size: 16px; outline: none; resize: vertical;"></textarea>
+        </div><button id="contact-submit" type="submit" style="padding: 16px 32px; border: 4px solid; font-weight: bold; cursor: pointer; transition: all 0.2s; font-size: 16px;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'"> Send Message </button>
+       </form>
+      </div>
+     </div>
+    </div>
+   </section><!-- Footer -->
+   <footer style="padding: 40px 20px; border-top: 6px solid; text-align: center;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+     <div style="display: flex; justify-content: center; gap: 32px; margin-bottom: 24px; flex-wrap: wrap;"><a href="#hero" style="text-decoration: none; font-weight: 500; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Home</a> <a href="#about" style="text-decoration: none; font-weight: 500; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">About</a> <a href="#projects" style="text-decoration: none; font-weight: 500; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Projects</a> <a href="#services" style="text-decoration: none; font-weight: 500; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Services</a> <a href="#experience" style="text-decoration: none; font-weight: 500; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Experience</a> <a href="#contact" style="text-decoration: none; font-weight: 500; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Contact</a>
+     </div>
+     <p style="margin: 0;">© 2024 <span id="footer-name">Dhanush Mathe</span>. All rights reserved.</p>
+    </div>
+   </footer>
+  </main>
+  <script>
+    // Detect user's preferred color scheme
+    const prefersDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    const defaultConfig = {
+      designer_name: "Dhanush Mathe",
+      job_title: "Senior Frontend Designer & Developer",
+      tagline: "Crafting exceptional digital experiences with modern web technologies",
+      bio_text: "Passionate about creating beautiful, functional user experiences through clean code and thoughtful design. Specializing in React, modern CSS, and user-centered design principles with 5+ years of industry experience.",
+      email_address: "alex.johnson@email.com",
+      phone_number: "+1 (555) 123-4567",
+      location: "San Francisco, CA",
+      portfolio_url: "www.alexjohnson.dev",
+      github_username: "github.com/alexjohnson",
+      linkedin_profile: "linkedin.com/in/alexjohnson",
+      // Dynamic theme based on user preference
+      background_color: prefersDarkMode ? "#000000" : "#f8fafc",
+      surface_color: prefersDarkMode ? "#1a1a1a" : "#ffffff",
+      text_color: prefersDarkMode ? "#ffffff" : "#1e293b",
+      border_color: prefersDarkMode ? "#ffffff" : "#334155",
+      button_color: prefersDarkMode ? "#ffffff" : "#3b82f6",
+      font_family: "system-ui",
+      font_size: 16
+    };
+
+    let config = { ...defaultConfig };
+    let currentRecordCount = 0;
+
+    // Data handler for contact form submissions
+    const dataHandler = {
+      onDataChanged(data) {
+        currentRecordCount = data.length;
+        // Update UI if needed - for now just track count
+      }
+    };
+
+    // Mobile menu functionality
+    function toggleMobileMenu() {
+      const mobileMenu = document.getElementById('mobile-menu');
+      mobileMenu.classList.toggle('open');
+    }
+
+    // Smooth scrolling
+    function scrollToSection(sectionId) {
+      document.getElementById(sectionId).scrollIntoView({ 
+        behavior: 'smooth' 
+      });
+    }
+
+    // Download resume functionality
+    function downloadResume() {
+      const message = document.createElement('div');
+      message.textContent = 'Resume download would start here in a real implementation.';
+      message.style.cssText = `
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: ${config.button_color || defaultConfig.button_color};
+        color: ${config.surface_color || defaultConfig.surface_color};
+        padding: 16px 32px;
+        border: 4px solid ${config.border_color || defaultConfig.border_color};
+        font-family: ${config.font_family || defaultConfig.font_family}, system-ui, sans-serif;
+        font-weight: bold;
+        z-index: 10000;
+      `;
+      document.body.appendChild(message);
+      setTimeout(() => message.remove(), 3000);
+    }
+
+    // Contact form submission
+    async function handleContactSubmit(event) {
+      event.preventDefault();
+      
+      if (currentRecordCount >= 999) {
+        showMessage('Maximum limit of 999 contact submissions reached. Please try again later.', 'error');
+        return;
+      }
+
+      const submitBtn = document.getElementById('contact-submit');
+      const originalText = submitBtn.textContent;
+      
+      // Show loading state
+      submitBtn.innerHTML = '<span class="spinner"></span>Sending...';
+      submitBtn.classList.add('loading');
+
+      const formData = {
+        name: document.getElementById('contact-name').value,
+        email: document.getElementById('contact-email').value,
+        subject: document.getElementById('contact-subject').value,
+        message: document.getElementById('contact-message').value,
+        timestamp: new Date().toISOString()
+      };
+
+      try {
+        if (window.dataSdk) {
+          const result = await window.dataSdk.create(formData);
+          
+          if (result.isOk) {
+            showMessage('Message sent successfully! I\'ll get back to you soon.', 'success');
+            document.getElementById('contact-form').reset();
+          } else {
+            showMessage('Failed to send message. Please try again.', 'error');
+          }
+        } else {
+          // Fallback for demo
+          showMessage('Message sent successfully! (Demo mode)', 'success');
+          document.getElementById('contact-form').reset();
+        }
+      } catch (error) {
+        showMessage('Failed to send message. Please try again.', 'error');
+      } finally {
+        // Reset button state
+        submitBtn.textContent = originalText;
+        submitBtn.classList.remove('loading');
+      }
+    }
+
+    // Show message function
+    function showMessage(text, type) {
+      const message = document.createElement('div');
+      message.textContent = text;
+      message.style.cssText = `
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: ${type === 'success' ? '#00ff00' : '#ff0000'};
+        color: ${config.surface_color || defaultConfig.surface_color};
+        padding: 16px 32px;
+        border: 4px solid ${config.border_color || defaultConfig.border_color};
+        font-family: ${config.font_family || defaultConfig.font_family}, system-ui, sans-serif;
+        font-weight: bold;
+        z-index: 10000;
+        max-width: 90%;
+        text-align: center;
+      `;
+      document.body.appendChild(message);
+      setTimeout(() => message.remove(), 4000);
+    }
+
+    // Update styles function
+    function updateStyles() {
+      const baseSize = config.font_size || defaultConfig.font_size;
+      const fontStack = `${config.font_family || defaultConfig.font_family}, system-ui, sans-serif`;
+      const bgColor = config.background_color || defaultConfig.background_color;
+      const surfaceColor = config.surface_color || defaultConfig.surface_color;
+      const textColor = config.text_color || defaultConfig.text_color;
+      const borderColor = config.border_color || defaultConfig.border_color;
+      const buttonColor = config.button_color || defaultConfig.button_color;
+
+      // Update body styles
+      document.body.style.backgroundColor = bgColor;
+      document.body.style.color = textColor;
+      document.body.style.fontFamily = fontStack;
+      document.body.style.fontSize = `${baseSize}px`;
+
+      // Update navigation
+      const nav = document.getElementById('main-nav');
+      nav.style.backgroundColor = `${surfaceColor}dd`;
+      nav.style.borderBottom = `4px solid ${borderColor}`;
+      nav.style.color = textColor;
+
+      const navLogo = document.getElementById('nav-logo');
+      navLogo.style.color = textColor;
+      navLogo.style.fontFamily = fontStack;
+      navLogo.style.fontSize = `${baseSize * 1.25}px`;
+
+      // Update mobile menu
+      const mobileMenu = document.getElementById('mobile-menu');
+      mobileMenu.style.backgroundColor = surfaceColor;
+      mobileMenu.style.color = textColor;
+
+      // Update all links
+      const links = document.querySelectorAll('a');
+      links.forEach(link => {
+        link.style.color = textColor;
+        link.style.fontFamily = fontStack;
+      });
+
+      // Update all buttons
+      const buttons = document.querySelectorAll('button');
+      buttons.forEach(btn => {
+        btn.style.backgroundColor = buttonColor;
+        btn.style.color = buttonColor === '#ffffff' ? '#000000' : surfaceColor;
+        btn.style.borderColor = borderColor;
+        btn.style.fontFamily = fontStack;
+        btn.style.fontSize = `${baseSize}px`;
+      });
+
+      // Update mobile menu button
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      mobileMenuBtn.style.borderColor = borderColor;
+      mobileMenuBtn.style.color = textColor;
+
+      // Update profile image
+      const profileImage = document.getElementById('profile-image');
+      profileImage.style.backgroundColor = surfaceColor;
+      profileImage.style.borderColor = borderColor;
+      profileImage.style.color = textColor;
+
+      // Update all bordered elements
+      const borderedElements = document.querySelectorAll('[style*="border"]');
+      borderedElements.forEach(el => {
+        if (el.style.border && el.style.border.includes('solid')) {
+          el.style.borderColor = borderColor;
+        }
+        if (el.style.borderTop && el.style.borderTop.includes('solid')) {
+          el.style.borderColor = borderColor;
+        }
+        if (el.style.borderBottom && el.style.borderBottom.includes('solid')) {
+          el.style.borderColor = borderColor;
+        }
+      });
+
+      // Update sections
+      const sections = document.querySelectorAll('section');
+      sections.forEach(section => {
+        if (section.style.borderTop) {
+          section.style.borderColor = borderColor;
+        }
+      });
+
+      // Update headings
+      const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+      headings.forEach(heading => {
+        heading.style.fontFamily = fontStack;
+        heading.style.color = textColor;
+        
+        if (heading.tagName === 'H1') {
+          heading.style.fontSize = `${baseSize * 2.5}px`;
+        } else if (heading.tagName === 'H2') {
+          heading.style.fontSize = `${baseSize * 2.25}px`;
+        } else if (heading.tagName === 'H3') {
+          heading.style.fontSize = `${baseSize * 1.75}px`;
+        } else if (heading.tagName === 'H4') {
+          heading.style.fontSize = `${baseSize * 1.5}px`;
+        }
+      });
+
+      // Update paragraphs
+      const paragraphs = document.querySelectorAll('p');
+      paragraphs.forEach(p => {
+        p.style.fontFamily = fontStack;
+        p.style.fontSize = `${baseSize}px`;
+        p.style.color = textColor;
+      });
+
+      // Update form inputs
+      const inputs = document.querySelectorAll('input, textarea, select');
+      inputs.forEach(input => {
+        input.style.backgroundColor = surfaceColor;
+        input.style.color = textColor;
+        input.style.borderColor = borderColor;
+        input.style.fontFamily = fontStack;
+        input.style.fontSize = `${baseSize}px`;
+      });
+
+      // Update labels
+      const labels = document.querySelectorAll('label');
+      labels.forEach(label => {
+        label.style.color = textColor;
+        label.style.fontFamily = fontStack;
+        label.style.fontSize = `${baseSize * 0.9}px`;
+      });
+
+      // Update skill tags and other small elements
+      const skillTags = document.querySelectorAll('span[style*="padding: 6px 12px"], span[style*="padding: 4px 12px"]');
+      skillTags.forEach(tag => {
+        tag.style.backgroundColor = surfaceColor;
+        tag.style.color = textColor;
+        tag.style.borderColor = borderColor;
+        tag.style.fontFamily = fontStack;
+      });
+
+      // Update footer
+      const footer = document.querySelector('footer');
+      footer.style.borderColor = borderColor;
+
+      // Update responsive breakpoints
+      updateResponsiveStyles();
+    }
+
+    // Update responsive styles
+    function updateResponsiveStyles() {
+      const desktopMenu = document.getElementById('desktop-menu');
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      
+      if (window.innerWidth >= 768) {
+        desktopMenu.style.display = 'flex';
+        mobileMenuBtn.style.display = 'none';
+      } else {
+        desktopMenu.style.display = 'none';
+        mobileMenuBtn.style.display = 'block';
+      }
+    }
+
+    // Update content function
+    function updateContent() {
+      // Update text content
+      document.getElementById('designer-name').textContent = config.designer_name || defaultConfig.designer_name;
+      document.getElementById('job-title').textContent = config.job_title || defaultConfig.job_title;
+      document.getElementById('tagline').textContent = config.tagline || defaultConfig.tagline;
+      document.getElementById('bio-text').textContent = config.bio_text || defaultConfig.bio_text;
+      document.getElementById('email-address').textContent = config.email_address || defaultConfig.email_address;
+      document.getElementById('phone-number').textContent = config.phone_number || defaultConfig.phone_number;
+      document.getElementById('location').textContent = config.location || defaultConfig.location;
+      document.getElementById('footer-name').textContent = config.designer_name || defaultConfig.designer_name;
+      document.getElementById('nav-logo').textContent = config.designer_name || defaultConfig.designer_name;
+    }
+
+    // Initialize Data SDK
+    async function initializeDataSDK() {
+      if (window.dataSdk) {
+        try {
+          const result = await window.dataSdk.init(dataHandler);
+          if (!result.isOk) {
+            console.error('Failed to initialize Data SDK');
+          }
+        } catch (error) {
+          console.error('Error initializing Data SDK:', error);
+        }
+      }
+    }
+
+    // Initialize Element SDK
+    function initializeElementSDK() {
+      if (window.elementSdk) {
+        window.elementSdk.init({
+          defaultConfig,
+          onConfigChange: async (newConfig) => {
+            config = { ...config, ...newConfig };
+            updateStyles();
+            updateContent();
+          },
+          mapToCapabilities: (config) => ({
+            recolorables: [
+              {
+                get: () => config.background_color || defaultConfig.background_color,
+                set: (value) => {
+                  config.background_color = value;
+                  window.elementSdk.setConfig({ background_color: value });
+                }
+              },
+              {
+                get: () => config.surface_color || defaultConfig.surface_color,
+                set: (value) => {
+                  config.surface_color = value;
+                  window.elementSdk.setConfig({ surface_color: value });
+                }
+              },
+              {
+                get: () => config.text_color || defaultConfig.text_color,
+                set: (value) => {
+                  config.text_color = value;
+                  window.elementSdk.setConfig({ text_color: value });
+                }
+              },
+              {
+                get: () => config.border_color || defaultConfig.border_color,
+                set: (value) => {
+                  config.border_color = value;
+                  window.elementSdk.setConfig({ border_color: value });
+                }
+              },
+              {
+                get: () => config.button_color || defaultConfig.button_color,
+                set: (value) => {
+                  config.button_color = value;
+                  window.elementSdk.setConfig({ button_color: value });
+                }
+              }
+            ],
+            borderables: [],
+            fontEditable: {
+              get: () => config.font_family || defaultConfig.font_family,
+              set: (value) => {
+                config.font_family = value;
+                window.elementSdk.setConfig({ font_family: value });
+              }
+            },
+            fontSizeable: {
+              get: () => config.font_size || defaultConfig.font_size,
+              set: (value) => {
+                config.font_size = value;
+                window.elementSdk.setConfig({ font_size: value });
+              }
+            }
+          }),
+          mapToEditPanelValues: (config) => new Map([
+            ["designer_name", config.designer_name || defaultConfig.designer_name],
+            ["job_title", config.job_title || defaultConfig.job_title],
+            ["tagline", config.tagline || defaultConfig.tagline],
+            ["bio_text", config.bio_text || defaultConfig.bio_text],
+            ["email_address", config.email_address || defaultConfig.email_address],
+            ["phone_number", config.phone_number || defaultConfig.phone_number],
+            ["location", config.location || defaultConfig.location],
+            ["portfolio_url", config.portfolio_url || defaultConfig.portfolio_url],
+            ["github_username", config.github_username || defaultConfig.github_username],
+            ["linkedin_profile", config.linkedin_profile || defaultConfig.linkedin_profile]
+          ])
+        });
+      }
+    }
+
+    // Window resize handler
+    window.addEventListener('resize', updateResponsiveStyles);
+
+    // Listen for theme changes
+    if (window.matchMedia) {
+      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+      mediaQuery.addEventListener('change', (e) => {
+        // Update colors based on new preference
+        const isDark = e.matches;
+        const newColors = {
+          background_color: isDark ? "#000000" : "#f8fafc",
+          surface_color: isDark ? "#1a1a1a" : "#ffffff",
+          text_color: isDark ? "#ffffff" : "#1e293b",
+          border_color: isDark ? "#ffffff" : "#334155",
+          button_color: isDark ? "#ffffff" : "#3b82f6"
+        };
+        
+        // Update config and apply changes
+        config = { ...config, ...newColors };
+        updateStyles();
+        
+        // Update Element SDK if available
+        if (window.elementSdk) {
+          window.elementSdk.setConfig(newColors);
+        }
+      });
+    }
+
+    // Initialize everything
+    document.addEventListener('DOMContentLoaded', async () => {
+      await initializeDataSDK();
+      initializeElementSDK();
+      updateStyles();
+      updateContent();
+      updateResponsiveStyles();
+    });
+
+    // Initialize immediately if DOM is already loaded
+    if (document.readyState === 'loading') {
+      // DOM is still loading
+    } else {
+      // DOM is already loaded
+      (async () => {
+        await initializeDataSDK();
+        initializeElementSDK();
+        updateStyles();
+        updateContent();
+        updateResponsiveStyles();
+      })();
+    }
+
+    window.addEventListener('load', () => {
+  const fallback = document.getElementById('fallback-loading');
+  if (fallback) {
+    // Keep visible for at least 2-3 seconds, then hide
+    setTimeout(() => {
+      fallback.style.display = 'none';
+    }, 3000);
+  }
+});
+
+
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9981700943024013',t:'MTc2MjA2MzUwMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
