@@ -17,6 +17,38 @@ body, h1, h2, h3, h4, h5, h6, p, a, div, span, button {
   letter-spacing: 0.5px;
   font-weight: 100 !important;
 }
+html, body {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+#mobile-menu-btn {
+  display: block;
+  padding: 12px 36px;
+  border: 3px solid var(--menu-btn-border, #334155);
+  background: var(--menu-btn-bg, #fff);
+  color: var(--menu-btn-text, #1e293b);
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 7px;
+  font-size: 1.3rem;
+  margin: 0 16px;
+  transition: background 0.2s, color 0.2s;
+  max-width: 400px;
+  
+  box-sizing: border-box;
+  overflow: hidden;
+}
+@media (max-width: 600px) {
+  #mobile-menu-btn {
+    max-width: 90vw;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: 1rem;
+    margin: 0 auto;
+  }
+}
+
 h1 {
   font-size: 3rem !important;
   font-weight: bold !important;
@@ -87,6 +119,9 @@ h1 {
 .abthead{
   color: #ffffff !important;
   border-bottom: 3.5px solid #ffffff !important;
+}
+.blacktxt{
+  color: #000000 !important;
 }
 }
 
@@ -165,9 +200,12 @@ h1 {
   <style>@view-transition { navigation: auto; }</style>
  </head>
  <body>
-    <div id="fallback-loading" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #fff; display: flex; justify-content: center; align-items: center; font-family: monospace; font-size: 30px; font-weight: bold; color: #3b82f6; z-index: 9999;">
-  Loading...
+  <div id="loader"
+  style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:9999;display:flex;align-items:center;justify-content:center;background:#23272f;transition:opacity 0.4s;">
+  <span id="loader-text" style="font-size:2rem;font-family:monospace;color:#fff;">Loading...</span>
 </div>
+
+
 
     <!-- Navigation -->
   <nav id="main-nav" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 16px 20px; backdrop-filter: blur(10px); background-color: rgba(255, 255, 255, 0.95); border-bottom: 4px solid #334155; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);">
@@ -175,18 +213,18 @@ h1 {
     <div id="nav-logo" class="bgblue" style="padding: 12px 20px; border: 3px solid #334155;  color: #ffffff; font-weight: bold; font-size: 18px; transition: all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.2)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
      Dhanush Mathe
     </div><!-- Desktop Menu -->
-    <div id="desktop-menu" style="display: none; gap: 8px;"><a href="#hero" style="text-decoration: none; padding: 12px 20px; border: 3px solid #334155; background-color: #ffffff; color: #1e293b; font-weight: 500; transition: all 0.2s;" onmouseover="this.style.backgroundColor='#3b82f6'; this.style.color='#ffffff'; this.style.transform='translateY(-2px)'" onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='#1e293b'; this.style.transform='translateY(0)'">Home</a> <a href="#about" style="text-decoration: none; padding: 12px 20px; border: 3px solid #334155; background-color: #ffffff; color: #1e293b; font-weight: 500; transition: all 0.2s;" onmouseover="this.style.backgroundColor='#3b82f6'; this.style.color='#ffffff'; this.style.transform='translateY(-2px)'" onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='#1e293b'; this.style.transform='translateY(0)'">About</a> <a href="#projects" style="text-decoration: none; padding: 12px 20px; border: 3px solid #334155; background-color: #ffffff; color: #1e293b; font-weight: 500; transition: all 0.2s;" onmouseover="this.style.backgroundColor='#3b82f6'; this.style.color='#ffffff'; this.style.transform='translateY(-2px)'" onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='#1e293b'; this.style.transform='translateY(0)'">Projects</a> <a href="#services" style="text-decoration: none; padding: 12px 20px; border: 3px solid #334155; background-color: #ffffff; color: #1e293b; font-weight: 500; transition: all 0.2s;" onmouseover="this.style.backgroundColor='#3b82f6'; this.style.color='#ffffff'; this.style.transform='translateY(-2px)'" onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='#1e293b'; this.style.transform='translateY(0)'">Services</a> <a href="#experience" style="text-decoration: none; padding: 12px 20px; border: 3px solid #334155; background-color: #ffffff; color: #1e293b; font-weight: 500; transition: all 0.2s;" onmouseover="this.style.backgroundColor='#3b82f6'; this.style.color='#ffffff'; this.style.transform='translateY(-2px)'" onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='#1e293b'; this.style.transform='translateY(0)'">Experience</a> <a href="#contact" style="text-decoration: none; padding: 12px 20px; border: 3px solid #334155; background-color: #ffffff; color: #1e293b; font-weight: 500; transition: all 0.2s;" onmouseover="this.style.backgroundColor='#3b82f6'; this.style.color='#ffffff'; this.style.transform='translateY(-2px)'" onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='#1e293b'; this.style.transform='translateY(0)'">Contact</a>
+    <div id="desktop-menu" style="display: none; gap: 8px;"><a class="blacktxt" href="#hero" style="text-decoration: none; padding: 12px 20px; border: 3px solid #334155; background-color: #ffffff; color: #1e293b; font-weight: 500; transition: all 0.2s;" onmouseover="this.style.backgroundColor='#3b82f6'; this.style.color='#ffffff'; this.style.transform='translateY(-2px)'" onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='#1e293b'; this.style.transform='translateY(0)'">Home</a> <a class="blacktxt"  href="#about" style="text-decoration: none; padding: 12px 20px; border: 3px solid #334155; background-color: #ffffff; color: #1e293b; font-weight: 500; transition: all 0.2s;" onmouseover="this.style.backgroundColor='#3b82f6'; this.style.color='#ffffff'; this.style.transform='translateY(-2px)'" onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='#1e293b'; this.style.transform='translateY(0)'">About</a> <a class="blacktxt"  href="#projects" style="text-decoration: none; padding: 12px 20px; border: 3px solid #334155; background-color: #ffffff; color: #1e293b; font-weight: 500; transition: all 0.2s;" onmouseover="this.style.backgroundColor='#3b82f6'; this.style.color='#ffffff'; this.style.transform='translateY(-2px)'" onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='#1e293b'; this.style.transform='translateY(0)'">Projects</a> <a class="blacktxt"  href="#services" style="text-decoration: none; padding: 12px 20px; border: 3px solid #334155; background-color: #ffffff; color: #1e293b; font-weight: 500; transition: all 0.2s;" onmouseover="this.style.backgroundColor='#3b82f6'; this.style.color='#ffffff'; this.style.transform='translateY(-2px)'" onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='#1e293b'; this.style.transform='translateY(0)'">Services</a> <a class="blacktxt"  href="#experience" style="text-decoration: none; padding: 12px 20px; border: 3px solid #334155; background-color: #ffffff; color: #1e293b; font-weight: 500; transition: all 0.2s;" onmouseover="this.style.backgroundColor='#3b82f6'; this.style.color='#ffffff'; this.style.transform='translateY(-2px)'" onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='#1e293b'; this.style.transform='translateY(0)'">Experience</a> <a class="blacktxt" href="#contact" style="text-decoration: none; padding: 12px 20px; border: 3px solid #334155; background-color: #ffffff; color: #1e293b; font-weight: 500; transition: all 0.2s;" onmouseover="this.style.backgroundColor='#3b82f6'; this.style.color='#ffffff'; this.style.transform='translateY(-2px)'" onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='#1e293b'; this.style.transform='translateY(0)'">Contact</a>
     </div><!-- Mobile Menu Button --> <button id="mobile-menu-btn" style="display: block; padding: 12px; border: 3px solid #334155; background-color: #ffffff; cursor: pointer; color: #1e293b; transition: all 0.2s;" onclick="toggleMobileMenu()" onmouseover="this.style.backgroundColor=config.button_color || defaultConfig.button_color; this.style.color=config.button_color === '#ffffff' ? '#000000' : '#ffffff'" onmouseout="this.style.backgroundColor=config.surface_color || defaultConfig.surface_color; this.style.color=config.text_color || defaultConfig.text_color">
-     <div style="width: 20px; height: 3px; background: currentColor; margin: 4px 0; transition: background 0.2s;"></div>
-     <div style="width: 20px; height: 3px; background: currentColor; margin: 4px 0; transition: background 0.2s;"></div>
-     <div style="width: 20px; height: 3px; background: currentColor; margin: 4px 0; transition: background 0.2s;"></div></button>
+     <div class="blacktxt" style="width: 20px; height: 3px; background: currentColor; margin: 4px 0; transition: background 0.2s;"></div>
+     <div class="blacktxt" style="width: 20px; height: 3px; background: currentColor; margin: 4px 0; transition: background 0.2s;"></div>
+     <div class="blacktxt" style="width: 20px; height: 3px; background: currentColor; margin: 4px 0; transition: background 0.2s;"></div></button>
    </div><!-- Mobile Menu -->
    <div id="mobile-menu" class="mobile-menu" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; padding: 10px 20px 20px; display: flex; flex-direction: column; gap: 16px; background-color: #ffffff; color: #1e293b; border-right: 4px solid #334155;"><!-- Mobile Menu Header -->
     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; padding-bottom: 20px; border-bottom: 4px solid #334155;">
      <div class="bgblue" style="padding: 12px 20px; border: 3px solid #334155;  color: #ffffff; font-weight: bold; font-size: 18px;">
       Dhanush Mathe
      </div><button onclick="toggleMobileMenu()" style="padding: 8px; border: 3px solid #334155; background-color: #ffffff; color: #1e293b; cursor: pointer; font-size: 20px; font-weight: bold;">✕</button>
-    </div><!-- Mobile Menu Items --> <a href="#hero" style="text-decoration: none; font-size: 20px; font-weight: 500; padding: 16px 24px; border: 3px solid #334155; background-color: #ffffff; color: #1e293b; transition: all 0.2s; margin-bottom: 8px;" onclick="toggleMobileMenu()" onmouseover="this.style.backgroundColor='#3b82f6'; this.style.color='#ffffff'" onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='#1e293b'">🏠 Home</a> <a href="#about" style="text-decoration: none; font-size: 20px; font-weight: 500; padding: 16px 24px; border: 3px solid #334155; background-color: #ffffff; color: #1e293b; transition: all 0.2s; margin-bottom: 8px;" onclick="toggleMobileMenu()" onmouseover="this.style.backgroundColor='#3b82f6'; this.style.color='#ffffff'" onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='#1e293b'">👨‍💻 About</a> <a href="#projects" style="text-decoration: none; font-size: 20px; font-weight: 500; padding: 16px 24px; border: 3px solid #334155; background-color: #ffffff; color: #1e293b; transition: all 0.2s; margin-bottom: 8px;" onclick="toggleMobileMenu()" onmouseover="this.style.backgroundColor='#3b82f6'; this.style.color='#ffffff'" onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='#1e293b'">🚀 Projects</a> <a href="#services" style="text-decoration: none; font-size: 20px; font-weight: 500; padding: 16px 24px; border: 3px solid #334155; background-color: #ffffff; color: #1e293b; transition: all 0.2s; margin-bottom: 8px;" onclick="toggleMobileMenu()" onmouseover="this.style.backgroundColor='#3b82f6'; this.style.color='#ffffff'" onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='#1e293b'">💼 Services</a> <a href="#experience" style="text-decoration: none; font-size: 20px; font-weight: 500; padding: 16px 24px; border: 3px solid #334155; background-color: #ffffff; color: #1e293b; transition: all 0.2s; margin-bottom: 8px;" onclick="toggleMobileMenu()" onmouseover="this.style.backgroundColor='#3b82f6'; this.style.color='#ffffff'" onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='#1e293b'">📈 Experience</a> <a href="#contact" style="text-decoration: none; font-size: 20px; font-weight: 500; padding: 16px 24px; border: 3px solid #334155; background-color: #ffffff; color: #1e293b; transition: all 0.2s; margin-bottom: 8px;" onclick="toggleMobileMenu()" onmouseover="this.style.backgroundColor='#3b82f6'; this.style.color='#ffffff'" onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='#1e293b'">📧 Contact</a> <!-- Mobile Menu Footer -->
+    </div><!-- Mobile Menu Items --> <a class="blacktxt" href="#hero" style="text-decoration: none; font-size: 20px; font-weight: 500; padding: 16px 24px; border: 3px solid #334155; background-color: #ffffff; color: #1e293b; transition: all 0.2s; margin-bottom: 8px;" onclick="toggleMobileMenu()" onmouseover="this.style.backgroundColor='#3b82f6'; this.style.color='#ffffff'" onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='#1e293b'">🏠 Home</a> <a class="blacktxt" href="#about" style="text-decoration: none; font-size: 20px; font-weight: 500; padding: 16px 24px; border: 3px solid #334155; background-color: #ffffff; color: #1e293b; transition: all 0.2s; margin-bottom: 8px;" onclick="toggleMobileMenu()" onmouseover="this.style.backgroundColor='#3b82f6'; this.style.color='#ffffff'" onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='#1e293b'">👨‍💻 About</a> <a class="blacktxt" href="#projects" style="text-decoration: none; font-size: 20px; font-weight: 500; padding: 16px 24px; border: 3px solid #334155; background-color: #ffffff; color: #1e293b; transition: all 0.2s; margin-bottom: 8px;" onclick="toggleMobileMenu()" onmouseover="this.style.backgroundColor='#3b82f6'; this.style.color='#ffffff'" onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='#1e293b'">🚀 Projects</a> <a class="blacktxt" href="#services" style="text-decoration: none; font-size: 20px; font-weight: 500; padding: 16px 24px; border: 3px solid #334155; background-color: #ffffff; color: #1e293b; transition: all 0.2s; margin-bottom: 8px;" onclick="toggleMobileMenu()" onmouseover="this.style.backgroundColor='#3b82f6'; this.style.color='#ffffff'" onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='#1e293b'">💼 Services</a> <a class="blacktxt" href="#experience" style="text-decoration: none; font-size: 20px; font-weight: 500; padding: 16px 24px; border: 3px solid #334155; background-color: #ffffff; color: #1e293b; transition: all 0.2s; margin-bottom: 8px;" onclick="toggleMobileMenu()" onmouseover="this.style.backgroundColor='#3b82f6'; this.style.color='#ffffff'" onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='#1e293b'">📈 Experience</a> <a class="blacktxt" href="#contact" style="text-decoration: none; font-size: 20px; font-weight: 500; padding: 16px 24px; border: 3px solid #334155; background-color: #ffffff; color: #1e293b; transition: all 0.2s; margin-bottom: 8px;" onclick="toggleMobileMenu()" onmouseover="this.style.backgroundColor='#3b82f6'; this.style.color='#ffffff'" onmouseout="this.style.backgroundColor='#ffffff'; this.style.color='#1e293b'">📧 Contact</a> <!-- Mobile Menu Footer -->
     <div style="margin-top: auto; padding-top: 32px; border-top: 4px solid #334155; text-align: center;">
      <div style="padding: 12px; border: 3px solid #334155; background-color: #f8fafc; color: #1e293b; font-size: 14px;">
       Available for new projects ✨
@@ -232,12 +270,12 @@ h1 {
 
       <!-- Social Links -->
       <div style="display: flex; gap: 20px; justify-content: left; margin-bottom: 40px;">
-        <a href="#" target="_blank" rel="noopener noreferrer" style="padding: 12px; border: 3px solid #334155; transition: all 0.2s; background-color: #ffffff; color: #1e293b;"
+        <a  href="#" target="_blank" rel="noopener noreferrer" style="padding: 12px; border: 3px solid #334155; transition: all 0.2s; background-color: #ffffff; color: #1e293b;"
           onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
           <!-- GitHub Icon -->
           <svg class="iconsvg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.92c0-1.11.38-2 1.03-2.71c-.1-.25-.45-1.29.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33c.85 0 1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.35.2 2.39.1 2.64c.65.71 1.03 1.6 1.03 2.71c0 3.82-2.34 4.66-4.57 4.91c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
         </a>
-        <a href="#" target="_blank" rel="noopener noreferrer" style="padding: 12px; border: 3px solid #334155; transition: all 0.2s; background-color: #ffffff; color: #1e293b;"
+        <a  href="#" target="_blank" rel="noopener noreferrer" style="padding: 12px; border: 3px solid #334155; transition: all 0.2s; background-color: #ffffff; color: #1e293b;"
           onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
           <!-- LinkedIn Icon -->
           <svg class="iconsvg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -702,7 +740,7 @@ h1 {
     <div style="max-width: 1200px; margin: 0 auto;">
      <div style="display: flex; justify-content: center; gap: 32px; margin-bottom: 24px; flex-wrap: wrap;"><a href="#hero" style="text-decoration: none; font-weight: 500; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Home</a> <a href="#about" style="text-decoration: none; font-weight: 500; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">About</a> <a href="#projects" style="text-decoration: none; font-weight: 500; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Projects</a> <a href="#services" style="text-decoration: none; font-weight: 500; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Services</a> <a href="#experience" style="text-decoration: none; font-weight: 500; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Experience</a> <a href="#contact" style="text-decoration: none; font-weight: 500; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.7'" onmouseout="this.style.opacity='1'">Contact</a>
      </div>
-     <p style="margin: 0;"><span id="footer-name">Dhanush Mathe</span>.</p>
+     <p style="margin: 0;">© 2024 <span id="footer-name">Dhanush Mathe</span>. All rights reserved.</p>
     </div>
    </footer>
   </main>
@@ -1162,18 +1200,43 @@ h1 {
       })();
     }
 
-    window.addEventListener('load', () => {
-  const fallback = document.getElementById('fallback-loading');
-  if (fallback) {
-    // Keep visible for at least 2-3 seconds, then hide
-    setTimeout(() => {
-      fallback.style.display = 'none';
-    }, 3000);
-  }
-});
+    
 
 
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9981700943024013',t:'MTc2MjA2MzUwMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+  <script>
+const loadingFrames = [
+  "Loading...",
+  "⌰oading...",
+  "⌰⍜ading...",
+  "⌰⍜⏃ding...",
+  "⌰⍜⏃⎅ing...",
+  "⌰⍜⏃⎅⟟ng...",
+  "⌰⍜⏃⎅⟟⋏g...",
+  "⌰⍜⏃⎅⟟⋏☌...",
+  "⌰⍜⏃⎅⟟⋏☌⟒..",
+  "⌰⍜⏃⎅⟟⋏☌⟒⏁.",
+  "⌰⍜⏃⎅⟟⋏☌⟒⏁⋔"
+];
+let loaderText = document.getElementById("loader-text");
+let idx = 0;
+const frameInterval = setInterval(() => {
+  loaderText.textContent = loadingFrames[idx];
+  idx = (idx + 1) % loadingFrames.length;
+}, 140);
 
+window.addEventListener("load", function() {
+  setTimeout(function() {
+    clearInterval(frameInterval);
+    document.getElementById("loader").style.opacity = "0";
+    setTimeout(function() {
+      let l = document.getElementById("loader");
+      if(l) l.style.display = "none";
+    }, 400);
+  }, 5000); // Show loader for at least 2s
+});
+</script>
+
+
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9981700943024013',t:'MTc2MjA2MzUwMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
